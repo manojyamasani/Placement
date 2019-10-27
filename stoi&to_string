@@ -1,0 +1,44 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+string countfreq(string str)
+{
+    int i,j;
+    vector<int> count(26);
+    string temp;
+    for(i=0;i<str.length();i++)
+    {
+        int ind=(int)(str[i]-'a');
+        temp="";
+        for(j=i+1;!(str[j]>='a'&&str[j]<='z');j++)
+        {
+            temp+=str[j];
+        }
+        i+=j-i-1;      // decreses the redundancy in going back to integer characters in the for loop.
+        count[ind]+=stoi(temp);
+    }
+    temp="";
+    for(j=0;j<26;j++)
+    {
+        if(count[j]!=0)
+        {
+            temp+=(char)(j+'a');
+            temp+=to_string(count[j]);
+        }
+    }
+    return temp;
+    
+}
+
+int main() 
+{ 
+    string str;
+    cin>>str;
+	cout << countfreq(str); 
+	return 0; 
+} 
+
+Given such a string as below the output string must be in incresing order of it's characters followed by characters frequency.
+
+Input:a26b27c52a9c1d9a1b2
+Output:a36b29c53d9
