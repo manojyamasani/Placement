@@ -34,8 +34,8 @@ int main()
 { 
     string str;
     cin>>str;
-	cout << countfreq(str); 
-	return 0; 
+    cout << countfreq(str); 
+    return 0; 
 } 
 
 Given such a string as below the output string must be in incresing order of it's characters followed by characters frequency.
